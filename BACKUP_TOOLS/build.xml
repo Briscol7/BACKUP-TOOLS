@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="BACKUP_TOOLS">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <path id="BACKUP_TOOLS.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="../../sqljdbc_8.2/fra/mssql-jdbc-8.2.0.jre8.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Configuration">
+        <java classname="Configuration" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Config_Connexion_Frame">
+        <java classname="Config_Connexion_Frame" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Config_frame">
+        <java classname="Config_frame" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Connexion">
+        <java classname="Connexion" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Data">
+        <java classname="Data" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="DataFile">
+        <java classname="DataFile" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="DateHeure">
+        <java classname="DateHeure" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Lancement_Backup">
+        <java classname="Lancement_Backup" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Main_Frame (1)">
+        <java classname="Main_Frame" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Main_Frame">
+        <java classname="org.eclipse.wb.swing.Main_Frame" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Notifications">
+        <java classname="Notifications" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="Services_tools">
+        <java classname="Services_tools" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+    <target name="test">
+        <java classname="test" failonerror="true" fork="yes">
+            <classpath refid="BACKUP_TOOLS.classpath"/>
+        </java>
+    </target>
+</project>
